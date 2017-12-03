@@ -1,25 +1,44 @@
-# React js Blog
-This is a project to create a blog style application using React.js, a Node.js server, and Cosmic.js content delivery. The purpose is to learn how to use these things, and to build an application that would allow me to manage content on my personal website like a blog. The functionality will be for me to be able to add, edit, and remove entries to the 'portfolio' section of my website as well as the 'projects' section. 
+# React Universal Blog
+##### [View a demo here](http://react-universal-blog.cosmicapp.co/)
+[Sign up for Cosmic JS](https://cosmicjs.com/) to start managing content for your websites and applications faster and easier.
 
-## Package.json scripts
-For the purpose of development there are some scripts in the package.json file to be called from the command line (like one start up a development server). These scripts are written with Windows and PowerShell commands because I am working on this on a Windows computer, but if you would like to run this locally, you can change the following scripts:
+##### About
+The React Universal Blog is a portfolio blog app that renders html on the server to make all pages visible to search engines. Then after initial load from the server, it is converted to a single page application to allow for fast navigation between pages.  
 
-```json 
-  "scripts": {
-    "start": "npm run production",
-    "production": "PowerShell Remove-Item public/index.html && SET NODE_ENV=production webpack -p && SET NODE_ENV=production babel-node app-server.js --presets es2015",
-    "webpack-dev-server": "SET NODE_ENV=development & webpack-dev-server --content-base public/ --hot --inline --devtool inline-source-map --history-api-fallback",
-    "development": " SET NODE_ENV=development webpack & npm run webpack-dev-server"
-  },
+##### Notes
+I tried to keep the organization as simple as possible.  There are no client, server or shared component folders.  All components are shared and the only difference between client and server are the entry points (app-client.js, app-server.js and app.js). 
+
+It uses the following:
+<br>
+1. [React](http://facebook.github.io/react/) for UI views<br>
+2. [Express](http://expressjs.com/) for server side rendering<br>
+3. [React Router](https://github.com/rackt/react-router) for routing<br>
+4. [React Hot Loader](https://github.com/gaearon/react-hot-loader) for hot loading in development<br>
+5. [Flux](https://facebook.github.io/flux/) for data flow<br>
+6. [Cosmic JS](https://cosmicjs.com) for content management
+##### Install
 ```
-  
-  For use with Unix commands, you will have to change the "production" script to 
-  
-  ```javascript
-  rm -rf public/index.html && NODE_ENV=production webpack -p && NODE_ENV=production babel-node-app-server.js --presets es2015"
+git clone https://github.com/sitepoint-editors/react-universal-blog
+cd react-universal-blog
+npm install
 ```
-  
-  and change the "webpack-dev-server" script to 
+##### Run development
+```
+npm run development
+```
+Go to [http://localhost:8080](http://localhost:8080)
+##### Run production
+```
+npm start
+```
+Go to [http://localhost:3000](http://localhost:3000)
+##### Configure your Cosmic JS bucket
+After setting up your bucket on [Cosmic JS](https://cosmicjs.com), edit the ```config.js``` file and edit the slug to point to the slug of your bucket:
 ```javascript
- NODE_ENV=development & webpack-dev-server --content-base public/ --hot --inline --devtool inline-source-map --history-api-fallback
+// config.js
+export default {
+  bucket: {
+    slug: 'react-universal-blog'
+  }
+}
 ```
