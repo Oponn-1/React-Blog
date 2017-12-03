@@ -4,22 +4,22 @@ This is a project to create a blog style application using React.js, a Node.js s
 ##Package.json scripts
 For the purpose of development there are some scripts in the package.json file to be called from the command line (like one start up a development server). These scripts are written with Windows and PowerShell commands because I am working on this on a Windows computer, but if you would like to run this locally, you can change the following scripts:
 
-...json 
+```json 
   "scripts": {
     "start": "npm run production",
     "production": "PowerShell Remove-Item public/index.html && SET NODE_ENV=production webpack -p && SET NODE_ENV=production babel-node app-server.js --presets es2015",
     "webpack-dev-server": "SET NODE_ENV=development & webpack-dev-server --content-base public/ --hot --inline --devtool inline-source-map --history-api-fallback",
     "development": " SET NODE_ENV=development webpack & npm run webpack-dev-server"
   },
-  ...
+```
   
   For use with Unix commands, you will have to change the "production" script to 
   
-  ...javascript
+  ```javascript
   rm -rf public/index.html && NODE_ENV=production webpack -p && NODE_ENV=production babel-node-app-server.js --presets es2015"
-  ...
+```
   
   and change the "webpack-dev-server" script to 
-  ...javascript
+```javascript
  NODE_ENV=development & webpack-dev-server --content-base public/ --hot --inline --devtool inline-source-map --history-api-fallback
-...
+```
