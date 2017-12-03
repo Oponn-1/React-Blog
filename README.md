@@ -23,3 +23,7 @@ For the purpose of development there are some scripts in the package.json file t
 ```javascript
  NODE_ENV=development & webpack-dev-server --content-base public/ --hot --inline --devtool inline-source-map --history-api-fallback
 ```
+Make sure to run the following command to install all the node modules.
+```
+npm install
+```
